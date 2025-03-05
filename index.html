@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleBlog -Personal Blog</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="data:image/png;base64,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" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="blog.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="light-theme">
+
+  <!--
+    - #HEADER
+  -->
+
+  <header>
+
+    <div class="container">
+
+      <nav class="navbar">
+
+        <a href="#">
+          <img src="data:image/png;base64,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" alt="SimpleBlog logo" width="150" class="logo-light">
+          <img src="data:image/png;base64,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" alt="SimpleBlog logo" width="150" class="logo-dark">
+        </a>
+
+        <div class="btn-group">
+
+          <button class="theme-btn theme-btn-mobile light">
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <ion-icon name="sunny" class="sun"></ion-icon>
+          </button>
+
+          <button class="nav-menu-btn">
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <div class="flex-wrapper">
+
+          <ul class="desktop-nav">
+
+            <li>
+              <a href="#" class="nav-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#" class="nav-link">About Me</a>
+            </li>
+
+            <li>
+              <a href="#" class="nav-link">Contact</a>
+            </li>
+
+          </ul>
+
+          <button class="theme-btn theme-btn-desktop light">
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <ion-icon name="sunny" class="sun"></ion-icon>
+          </button>
+
+        </div>
+
+        <div class="mobile-nav">
+
+          <button class="nav-close-btn">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+          <div class="wrapper">
+
+            <p class="h3 nav-title">Main Menu</p>
+
+            <ul>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">About Me</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div>
+
+            <p class="h3 nav-title">Topics</p>
+
+            <ul>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Database</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Accessibility</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Web Performance</a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+
+
+  <main>
+
+    <!--
+      - #HERO SECTION
+    -->
+
+    <div class="hero">
+
+      <div class="container">
+
+        <div class="left">
+
+          <h1 class="h1">
+            Hi, I'm <b>Manisha&nbsp;S</b>.
+            <br>Web Developer
+          </h1>
+
+         
+
+          <div class="btn-group">
+            <a href="#" class="btn btn-primary">Contact Me</a>
+            <a href="#" class="btn btn-secondary">About Me</a>
+          </div>
+
+        </div>
+
+        <div class="right">
+
+          <div class="pattern-bg"></div>
+          <div class="img-box">
+            <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="Manisha" class="hero-img">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="main">
+
+      <div class="container">
+
+        <!--
+          - BLOG SECTION
+        -->
+
+        <div class="blog">
+
+          <h2 class="h2">Latest Blog Post</h2>
+
+          <div class="blog-card-group">
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="data:image/jpeg;base64,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" alt="Building microservices with Dropwizard, MongoDB & Docker"
+                  width="250" class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Database</button>
+
+                <h3>
+                  <a href="#" class="h3">
+                    Building microservices with Dropwizard, MongoDB & Docker
+                  </a>
+                </h3>
+
+                <p class="blog-text">
+                  This NoSQL database oriented to documents (by documents like JSON) combines some of the features from
+                  relational
+                  databases, easy to use and the multi-platform is the best option for scale up and have fault
+                  tolerance, load balancing,
+                  map reduce, etc.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="Julia Walker" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">Manisha</a>
+
+                    <p class="text-sm">
+                      <time datetime="2024-01-17">Jan 17, 2024</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT3M">3 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Z14T4lpYtEzGx2H5rdANGty7SsjaFTnIcA&s" alt="Fast web page loading on a $20 feature phone" width="250"
+                  class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Web Performance</button>
+
+                <h3><a href="" class="h3">Fast web page loading on a $20 feature phone</a></h3>
+
+                <p class="blog-text">
+                  Feature phones are affordable (under $20-25), low-end devices enabling 100s of millions of users in
+                  developing countries
+                  to leverage the web. Think of them as a light version of a smart phone.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="Manisha" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">Julia Walker</a>
+
+                    <p class="text-sm">
+                      <time datetime="2023-12-10">Dec 10, 2023</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT2M">2 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="https://iadp.ahs.illinois.edu/files/2022/09/fingerburst-background.jpg" alt="Accessibility Tips for Web Developers" width="250"
+                  class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Accessibility</button>
+
+                <h3><a href="" class="h3">Accessibility Tips for Web Developers</a></h3>
+
+                <p class="blog-text">
+                  It's awesome to build sites that are inclusive and accessible to everyone. There are at least six key
+                  areas of
+                  disability we can optimize for: visual, hearing, mobility, cognition, speech and neural. Many tools
+                  and resources can
+                  help here, even if you're totally new to web accessibility.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="Manisha" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">Julia Walker</a>
+
+                    <p class="text-sm">
+                      <time datetime="2023-11-28">Nov 28, 2023</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT4M">4 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="https://thumbs.dreamstime.com/z/secure-database-color-glass-buttons-white-icons-round-192611986.jpg" alt="Dynamically Securing Databases using Hashicorp Vault"
+                  width="250" class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Database</button>
+
+                <h3><a href="" class="h3">Dynamically Securing Databases using Hashicorp Vault</a></h3>
+
+                <p class="blog-text">
+                  Nowadays, it's hard to profoundly talk about security in the IT industry, since it has to be
+                  considered on so many
+                  different levels: from securing code chunks, securing containers, up to securing complex
+                  infrastructures and defining
+                  strong authorization and authentication policies across the enterprise.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="Manisha" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">Manisha</a>
+
+                    <p class="text-sm">
+                      <time datetime="2023-11-20">Nov 20, 2023</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT4M">4 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="https://camo.githubusercontent.com/4cbc46d47a1aad8f50ba4312110e531c439d1d32fd46b5be0440cf8235188949/68747470733a2f2f776562646576656c6f7065726f632e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30352f706572666f726d2e706e67"
+                  alt="Adaptive Loading - Improving Web Performance on low-end devices" width="250"
+                  class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Web Performance</button>
+
+                <h3><a href="" class="h3">Adaptive Loading - Improving Web Performance on low-end devices</a></h3>
+
+                <p class="blog-text">
+                  Adaptive Loading: Do not just respond based on screen size, adapt based on actual device hardware.
+                  Any user can have a slow experience. In a world with widely varying device capabilities, a "one-size"
+                  fits all
+                  experience may not always work. Sites that delight users on high-end devices can be unusable on
+                  low-end ones,
+                  particularly on median mobile and desktop hardware and in emerging markets.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="manisha" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">Manisha</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-11-10">Nov 10, 2021</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT3M">3 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="https://therightsw.com/wp-content/uploads/2022/04/web-accessibility-3.jpg"
+                  alt="Don't Develop Just for Yourself - A Developer's Checklist to Accessibility" width="250"
+                  class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Accessibility</button>
+
+                <h3><a href="" class="h3">Don't Develop Just for Yourself - A Developer's Checklist to Accessibility</a>
+                </h3>
+
+                <p class="blog-text">
+                  We, as developers, tend to develop sites unconsciously for people like ourselves. If we don't actively
+                  pay attention,
+                  the sites are often accessible only for certain types of people: Sighted mouse-users, who have good
+                  fine motor skills
+                  and are good at using computers.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="Manisha" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">Manisha</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-10-25">Oct 25, 2021</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT7M">7 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="https://bs-uploads.toptal.io/blackfish-uploads/components/open_graph_image/10227551/og_image/optimized/secure-rest-api-in-nodejs-18f43b3033c239da5d2525cfd9fdc98f.png"
+                  alt="Building a Restful CRUD API with Node JS, Express, and MongoDB" width="250"
+                  class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Database</button>
+
+                <h3><a href="" class="h3">Building a Restful CRUD API with Node JS, Express, and MongoDB</a></h3>
+
+                <p class="blog-text">
+                  Application Programming Interface is the abbreviation for API. An API is a software interface that
+                  enables two apps to
+                  communicate with one another. In other words, an API is a messenger that sends your request to the
+                  provider and then
+                  returns the response to you.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="Manisha" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">Manisha</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-10-15">Oct 15, 2021</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT5M">5 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="https://thumbs.dreamstime.com/b/running-time-concept-clock-character-pressure-out-against-72924241.jpg" alt="Monitoring Performance with the PageSpeed Insights API"
+                  width="250" class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Web Performance</button>
+
+                <h3><a href="" class="h3">Monitoring Performance with the PageSpeed Insights API</a></h3>
+
+                <p class="blog-text">
+                  The PageSpeed Insights API provides free access to performance monitoring for web pages and returns
+                  data with
+                  suggestions for how to improve. The V5 API includes lab data from Lighthouse and real-world data from
+                  the Chrome User
+                  Experience Report (CrUX).
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="Julia walker" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">Manisha</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-10-03">Oct 3, 2021</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT5M">5 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="https://accessibilityspark.com/wp-content/uploads/2021/07/DreamHost-Accessibility-Tips-750x498-1.jpg" alt="The best web accessibility tools for developers in 2021"
+                  width="250" class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Accessibility</button>
+
+                <h3><a href="" class="h3">The best web accessibility tools for developers in 2021</a>
+                </h3>
+
+                <p class="blog-text">
+                  The quality of the tools you use defines the speed with which you can diagnose and resolve problems.
+                  Each year the landscape changes dramatically in web technologies, and of late the tooling for
+                  accessibility is no
+                  exception.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="Manisha" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">Manisha</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-09-13">Sep 13, 2021</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT7M">7 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/0*y6IcBe5J1AdALzXw.png"
+                  alt="How to connect a React frontend with a NodeJS/Express backend" width="250"
+                  class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Database</button>
+
+                <h3><a href="" class="h3">How to connect a React frontend with a NodeJS/Express backend</a></h3>
+
+                <p class="blog-text">
+                  The MERN (MongoDB, Express, React, NodeJS) stack is very popular for making full stack applications,
+                  utilizing
+                  Javascript for both the backend and frontend as well as a document-oriented or non relational database
+                  (MongoDB),
+                  meaning that it's structured like JSON rather than a large excel sheet like SQL databases are.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=" alt="manisha" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">manisha</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-09-21">Sep 21, 2021</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT4M">4 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <button class="btn load-more">Load More</button>
+
+        </div>
+
+
+
+
+
+        <!--
+          - ASIDE
+        -->
+
+        <div class="aside">
+
+          <div class="topics">
+
+            <h2 class="h2">Topics</h2>
+
+            <a href="#" class="topic-btn">
+              <div class="icon-box">
+                <ion-icon name="server-outline"></ion-icon>
+              </div>
+
+              <p>Database</p>
+            </a>
+
+            <a href="#" class="topic-btn">
+              <div class="icon-box">
+                <ion-icon name="accessibility-outline"></ion-icon>
+              </div>
+
+              <p>Accessibility</p>
+            </a>
+
+            <a href="#" class="topic-btn">
+              <div class="icon-box">
+                <ion-icon name="rocket-outline"></ion-icon>
+              </div>
+
+              <p>Web Performance</p>
+            </a>
+
+          </div>
+
+          <div class="tags">
+
+            <h2 class="h2">Tags</h2>
+
+            <div class="wrapper">
+
+              <button class="hashtag">#mongodb</button>
+              <button class="hashtag">#nodejs</button>
+              <button class="hashtag">#a11y</button>
+              <button class="hashtag">#mobility</button>
+              <button class="hashtag">#inclusion</button>
+              <button class="hashtag">#webperf</button>
+              <button class="hashtag">#optimize</button>
+              <button class="hashtag">#performance</button>
+
+            </div>
+
+          </div>
+
+          <div class="contact">
+
+            <h2 class="h2">Let's Talk</h2>
+
+            <div class="wrapper">
+
+              <p>
+                Do you want to learn more about how I can help your company overcome problems? Let us have a
+                conversation.
+              </p>
+
+              <ul class="social-link">
+
+                <li>
+                  <a href="#" class="icon-box discord">
+                    <ion-icon name="logo-discord"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="icon-box twitter">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="icon-box facebook">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="newsletter">
+
+            <h2 class="h2">Newsletter</h2>
+
+            <div class="wrapper">
+
+              <p>
+                Subscribe to our newsletter to be among the first to keep up with the latest updates.
+              </p>
+
+              <form action="#">
+                <input type="email" name="email" placeholder="Email Address" required>
+
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+
+
+
+  <!--
+    - #FOOTER
+  -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="wrapper">
+
+        <a href="#" class="footer-logo">
+          <img src="data:image/png;base64,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" alt="SimpleBlog Logo" width="150" class="logo-light">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8yMAcTIcN8Pm-0teXxlfSBKvcE6Z6rR5DHQ&s" alt="SimpleBlog Logo" width="150" class="logo-dark">
+        </a>
+
+        <p class="footer-text">
+          Learn about Web accessibility, Web performance, and Database management.
+        </p>
+
+      </div>
+
+      <div class="wrapper">
+
+        <p class="footer-title">Quick Links</p>
+
+        <ul>
+
+          <li>
+            <a href="#" class="footer-link">Advertise with us</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">About Us</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Contact Us</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="wrapper">
+
+        <p class="footer-title">Legal Stuff</p>
+
+        <ul>
+
+          <li>
+            <a href="#" class="footer-link">Privacy Notice</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Cookie Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Terms Of Use</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      &copy; Copyright 2024 <a href="#">SimpleBlog</a>
+    </p>
+
+  </footer>
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="blog.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
